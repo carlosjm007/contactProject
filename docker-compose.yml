@@ -1,0 +1,16 @@
+version: '3'
+services:
+        mongo:
+                container_name: mongo_dev
+                build:
+                        context: .
+                        dockerfile: ./docker_files/mongo/Dockerfile
+                volumes:
+                        - 'mongo_data:/data/db'
+                ports:
+                        - '27017:27017'
+
+
+volumes:
+        mongo_data:
+                driver: local
