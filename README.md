@@ -114,4 +114,4 @@ Unit test: `contactProject\XUnitTestProject1\UnitTest1.cs`
     }
 ```
 ### To run this unit test
-With visual Studio, just righ clic over `XUnitTestProject1` project, and select `Run unit test`, then `UnitTest1.cs` is going to be excecuted.
+With visual Studio, just right click over `XUnitTestProject1` project, and select `Run unit test`, then `UnitTest1.cs` is going to be excecuted.
