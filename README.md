@@ -91,3 +91,27 @@ It returns similar as if it were created.
 
 * GET `/api/contact/FindByPhoneOrEmail?phone={phone}&email={email}`: It return a contact list, those contacts match with phone and email
 * GET `/api/contact/FindByPhoneOrEmail?city={city}`: It return a contact list, those contacts match with city
+
+
+## Run unit test
+Inside the solution you will find a project called `XUnitTestProject1`; this countains a unit test that evaluates a contact emai.
+Unit test: `contactProject\XUnitTestProject1\UnitTest1.cs`
+```
+    [ExcludeFromCodeCoverage]
+    public class UnitTest1
+    {
+        [Fact]
+        public void verify_email()
+        {
+            ContactModel contact = new ContactModel();
+            contact.Email = "bad_email";
+            contact.PhoneNumberPersonal = "00000";
+            ContactService contactService = new ContactService(null);
+            Task<ResponseModel> response = contactService.Create(contact);
+            response.Result.Errors.Count.Should().Be(1);
+            response.Result.Errors[0].Code.Should().Be("email_invalid");
+        }
+    }
+```
+### To run this unit test
+With visual Studio, just righ clic over `XUnitTestProject1` project, and select `Run unit test`, then `UnitTest1.cs` is going to be excecuted.
