@@ -115,3 +115,7 @@ Unit test: `contactProject\XUnitTestProject1\UnitTest1.cs`
 ```
 ### To run this unit test
 With visual Studio, just right click over `XUnitTestProject1` project, and select `Run unit test`, then `UnitTest1.cs` is going to be excecuted.
+
+## Bonus
+Inside this repo you will find `endpoint_test.postman_collection.json` file, which can be import in Postman. So you can test this RestFull API in a test enviroment deploied as Azure App service.
+* API: `https://contactproject.azurewebsites.net`
