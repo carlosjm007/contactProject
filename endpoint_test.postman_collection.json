@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "472c3352-e8f5-437b-9614-f4945ee04408",
+		"name": "kindandcarta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Marla\",\r\n    \"company\": \"emsa\",\r\n    \"profile\": \"teacher\",\r\n    \"email\": \"carlos@emsa.com\",\r\n    \"phoneNumberWork\": null,\r\n    \"phoneNumberPersonal\": \"99999\",\r\n    \"address\": \"Av 89 # 87 - 32\",\r\n    \"city\": \"villavo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://contactproject.azurewebsites.net/api/contact",
+					"protocol": "https",
+					"host": [
+						"contactproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a contact by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Carlos\",\r\n    \"company\": \"emsa\",\r\n    \"profile\": \"teacher\",\r\n    \"email\": \"carlos@emsa.com\",\r\n    \"phoneNumberWork\": \"9999999\",\r\n    \"phoneNumberPersonal\": \"3333333\",\r\n    \"address\": \"Av 89 # 87 - 32\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://contactproject.azurewebsites.net/api/contact/f6e2a956-69fe-4805-93c9-96367df179c9",
+					"protocol": "https",
+					"host": [
+						"contactproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"contact",
+						"f6e2a956-69fe-4805-93c9-96367df179c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"94c4b94f-984a-4f39-8855-55ccf2b54d7f\",\r\n    \"name\": \"Carlos\",\r\n    \"company\": \"emsa\",\r\n    \"profile\": \"teacher\",\r\n    \"email\": \"carlos@emsa.comm\",\r\n    \"phoneNumberWork\": \"9999999\",\r\n    \"phoneNumberPersonal\": \"3333333\",\r\n    \"address\": \"Av 89 # 87 - 32\",\r\n    \"city\": \"villavo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://contactproject.azurewebsites.net/api/contact/b283ca22-2204-47d9-96b2-2aff1314711a",
+					"protocol": "https",
+					"host": [
+						"contactproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"contact",
+						"b283ca22-2204-47d9-96b2-2aff1314711a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a contact",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"b283ca22-2204-47d9-96b2-2aff1314711a\",\r\n    \"name\": \"Carlos\",\r\n    \"company\": \"emsa\",\r\n    \"profile\": \"teacher\",\r\n    \"email\": \"carlos@emsa.comm\",\r\n    \"phoneNumberWork\": null,\r\n    \"phoneNumberPersonal\": \"3333333\",\r\n    \"address\": \"Av 89 # 87 - 32\",\r\n    \"city\": \"villavo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://contactproject.azurewebsites.net/api/contact",
+					"protocol": "https",
+					"host": [
+						"contactproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by email o phone",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Carlos\",\r\n    \"company\": \"emsa\",\r\n    \"profile\": \"teacher\",\r\n    \"email\": \"carlos@emsa.com\",\r\n    \"phoneNumberWork\": \"9999999\",\r\n    \"phoneNumberPersonal\": \"3333333\",\r\n    \"address\": \"Av 89 # 87 - 32\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://contactproject.azurewebsites.net/api/contact/FindByPhoneOrEmail?phone=9999999&email=carlos@emsa.com",
+					"protocol": "https",
+					"host": [
+						"contactproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"contact",
+						"FindByPhoneOrEmail"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "9999999"
+						},
+						{
+							"key": "email",
+							"value": "carlos@emsa.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve by city",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Carlos\",\r\n    \"company\": \"emsa\",\r\n    \"profile\": \"teacher\",\r\n    \"email\": \"carlos@emsa.com\",\r\n    \"phoneNumberWork\": \"9999999\",\r\n    \"phoneNumberPersonal\": \"3333333\",\r\n    \"address\": \"Av 89 # 87 - 32\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://contactproject.azurewebsites.net/api/contact?city=villavo",
+					"protocol": "https",
+					"host": [
+						"contactproject",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"contact"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "villavo"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

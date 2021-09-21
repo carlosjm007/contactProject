@@ -13,6 +13,7 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 
 namespace ContactProject
@@ -34,12 +35,16 @@ namespace ContactProject
             services.AddSingleton<IMongoContactContext, MongoContactContext>();
             services.AddSingleton(s =>
             {
-                var mongoClient = new MongoClient(Configuration.GetSection("ContactDatabaseSettings")
-                    .GetSection("ConnectionString").Value);
-                var database = mongoClient.GetDatabase(Configuration.GetSection("ContactDatabaseSettings")
-                    .GetSection("DatabaseName").Value);
-                return database.GetCollection<ContactModel>(Configuration.GetSection("ContactDatabaseSettings")
-                    .GetSection("CollectionName").Value);
+
+                string connectionString = Configuration.GetSection("ConnectionString").Value;
+                MongoClientSettings settings = MongoClientSettings.FromUrl(
+                  new MongoUrl(connectionString)
+                );
+                settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+                var mongoClient = new MongoClient(settings);
+                var database = mongoClient.GetDatabase(Configuration.GetSection("DatabaseName").Value);
+                return database.GetCollection<ContactModel>(Configuration.GetSection("CollectionName").Value);
             });
         }
 
